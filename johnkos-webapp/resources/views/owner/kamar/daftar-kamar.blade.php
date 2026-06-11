@@ -16,7 +16,6 @@
     </div>
 
     <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-6">
-        {{-- Contoh Kamar Terisi --}}
         <a href="{{ route('owner.kamar.show', ['id' => 1]) }}" class="block bg-surface dark:bg-dark-surface rounded-md p-6 shadow-clay dark:shadow-dark-clay transition-all duration-300 ease-in-out border border-card-border dark:border-dark-card-border hover:shadow-clay-hover dark:hover:shadow-dark-clay-hover hover:-translate-y-0.5">
             <div class="flex justify-between items-center mb-2">
                 <h3 class="text-[20px] m-0 font-poppins font-semibold">Kamar 01</h3>
@@ -32,7 +31,6 @@
             </div>
         </a>
 
-        {{-- Contoh Kamar Jatuh Tempo --}}
         <a href="{{ route('owner.kamar.show', ['id' => 2]) }}" class="block bg-surface dark:bg-dark-surface rounded-md p-6 shadow-clay dark:shadow-dark-clay transition-all duration-300 ease-in-out border border-card-border dark:border-dark-card-border hover:shadow-clay-hover dark:hover:shadow-dark-clay-hover hover:-translate-y-0.5">
             <div class="flex justify-between items-center mb-2">
                 <h3 class="text-[20px] m-0 font-poppins font-semibold">Kamar 02</h3>
@@ -48,7 +46,6 @@
             </div>
         </a>
 
-        {{-- Contoh Kamar Kosong (Sekarang bisa diklik) --}}
         <a href="{{ route('owner.kamar.show', ['id' => 3]) }}" class="block bg-surface dark:bg-dark-surface rounded-md p-6 shadow-clay dark:shadow-dark-clay transition-all duration-300 ease-in-out border border-card-border dark:border-dark-card-border hover:shadow-clay-hover dark:hover:shadow-dark-clay-hover hover:-translate-y-0.5">
             <div class="flex justify-between items-center mb-2">
                 <h3 class="text-[20px] m-0 font-poppins font-semibold">Kamar 03</h3>

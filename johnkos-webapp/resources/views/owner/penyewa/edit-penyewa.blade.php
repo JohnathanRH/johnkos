@@ -36,7 +36,6 @@
                 </div>
             </div>
 
-            {{-- Tombol Aksi --}}
             <div class="flex justify-end gap-4 mt-8">
                 <button type="button" onclick="history.back()" class="inline-flex items-center py-2 px-6 border border-muted dark:border-dark-muted rounded-full font-semibold font-sans text-muted dark:text-dark-muted hover:bg-gray-100 dark:hover:bg-dark-surface-hover transition-all">Batal</button>
                 <button type="submit" class="p-3 px-6 border border-transparent rounded-full font-semibold font-sans cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] shadow-clay dark:shadow-dark-clay inline-block text-center bg-primary dark:bg-dark-primary text-white hover:bg-primary-hover dark:hover:bg-dark-primary-hover hover:shadow-clay-hover dark:hover:shadow-dark-clay-hover hover:-translate-y-0.5 active:shadow-clay-active dark:active:shadow-dark-clay-active active:translate-y-0">

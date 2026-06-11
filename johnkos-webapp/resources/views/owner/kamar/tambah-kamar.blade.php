@@ -7,7 +7,6 @@
     <div class="bg-surface dark:bg-dark-surface rounded-md p-6 shadow-clay dark:shadow-dark-clay border border-card-border dark:border-dark-card-border">
         <form action="#" method="POST">
             @csrf
-            {{-- Informasi Kamar --}}
             <div class="mb-6">
                 <h3 class="text-xl font-poppins font-semibold mb-3 border-b border-card-border dark:border-dark-card-border pb-2">Informasi Kamar</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">

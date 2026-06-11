@@ -5,7 +5,6 @@
 
 @section('content')
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-        {{-- Kartu Profil Utama --}}
         <div class="lg:col-span-1 bg-surface dark:bg-dark-surface rounded-md p-6 shadow-clay dark:shadow-dark-clay transition-all duration-300 ease-in-out border border-card-border dark:border-dark-card-border text-center flex flex-col h-full">
             <div class="flex-grow">
                 <div class="w-32 h-32 rounded-full bg-primary dark:bg-dark-primary text-white flex items-center justify-center font-bold text-5xl mx-auto mb-4">{{ strtoupper(substr($penyewa->nama, 0, 2)) }}</div>
@@ -18,7 +17,6 @@
             </div>
         </div>
 
-        {{-- Detail Informasi --}}
         <div class="lg:col-span-2 flex flex-col gap-6">
             <div class="bg-surface dark:bg-dark-surface rounded-md p-6 shadow-clay dark:shadow-dark-clay transition-all duration-300 ease-in-out border border-card-border dark:border-dark-card-border">
                 <h3 class="text-[20px] mb-2 font-poppins font-semibold">Informasi Pribadi</h3>
@@ -27,7 +25,6 @@
                         <span class="text-muted dark:text-dark-muted w-[180px] flex-shrink-0">Nomor Telepon</span>
                         <strong class="font-semibold text-right">{{ $penyewa->telepon }}</strong>
                     </div>
-                    {{-- Anda bisa menambahkan field lain di sini dengan pola yang sama --}}
                 </div>
             </div>
             <div class="bg-surface dark:bg-dark-surface rounded-md p-6 shadow-clay dark:shadow-dark-clay transition-all duration-300 ease-in-out border border-card-border dark:border-dark-card-border">

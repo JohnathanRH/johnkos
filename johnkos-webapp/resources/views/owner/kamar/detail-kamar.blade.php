@@ -5,7 +5,6 @@
 
 @section('content')
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-        {{-- Informasi Kamar --}}
         <div class="lg:col-span-2 bg-surface dark:bg-dark-surface rounded-md p-6 shadow-clay dark:shadow-dark-clay transition-all duration-300 ease-in-out border border-card-border dark:border-dark-card-border flex flex-col h-full">
             <h3 class="text-[20px] mb-2 font-poppins font-semibold">Informasi Kamar</h3>
             <div class="flex-grow">
@@ -33,7 +32,6 @@
             </div>
         </div>
 
-        {{-- Informasi Penghuni atau Aksi Tambah Penyewa --}}
         @if ($kamar->penghuni)
             <div class="bg-surface dark:bg-dark-surface rounded-md p-6 shadow-clay dark:shadow-dark-clay transition-all duration-300 ease-in-out border border-card-border dark:border-dark-card-border flex flex-col h-full">
                 <h3 class="text-[20px] mb-2 font-poppins font-semibold">Informasi Penghuni</h3>
