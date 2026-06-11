@@ -63,12 +63,11 @@
             </div>
         @endif
 
-        {{-- Riwayat Pembayaran (hanya tampil jika ada penghuni) --}}
         @if ($kamar->penghuni)
             <div class="lg:col-span-3 bg-surface dark:bg-dark-surface rounded-md p-6 shadow-clay dark:shadow-dark-clay transition-all duration-300 ease-in-out border border-card-border dark:border-dark-card-border">
                 <h3 class="text-[20px] mb-2 font-poppins font-semibold">Riwayat Pembayaran</h3>
                 <div class="space-y-2">
-                    {{-- Contoh Riwayat --}}
+
                     <div class="flex justify-between items-center p-3 bg-background dark:bg-dark-background rounded-sm">
                         <p>Pembayaran Bulan November</p>
                         <span class="py-1 px-3 rounded-full text-xs font-bold uppercase bg-success text-[#14532d]">Lunas</span>
