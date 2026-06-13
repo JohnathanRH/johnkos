@@ -101,9 +101,9 @@ Route::prefix('owner')->middleware('web')->group(function () {
     })->name('owner.penyewa.edit');
 
     // Other Owner Routes
-    Route::get('/notifikasi', function () {
-        return view('owner.notifikasi.daftar-notifikasi');
-    })->name('owner.notifikasi.index');
+    Route::get('/riwayat', function () {
+        return view('owner.riwayat.daftar-riwayat');
+    })->name('owner.riwayat.index');
 
     Route::get('/profil', function () {
         return view('owner.profil.halaman-profil');

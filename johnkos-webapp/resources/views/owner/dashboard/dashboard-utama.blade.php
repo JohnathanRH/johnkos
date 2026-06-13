@@ -25,7 +25,7 @@
             <p class="text-[36px] font-bold text-warning">2 <span class="text-base font-medium text-muted dark:text-dark-muted">Penyewa</span></p>
         </a>
 
-        <a href="{{ route('owner.notifikasi.index') }}" class="block bg-surface dark:bg-dark-surface rounded-md p-6 shadow-clay dark:shadow-dark-clay transition-all duration-300 ease-in-out border border-card-border dark:border-dark-card-border hover:shadow-clay-hover dark:hover:shadow-dark-clay-hover hover:-translate-y-0.5">
+        <a href="{{ route('owner.riwayat.index') }}" class="block bg-surface dark:bg-dark-surface rounded-md p-6 shadow-clay dark:shadow-dark-clay transition-all duration-300 ease-in-out border border-card-border dark:border-dark-card-border hover:shadow-clay-hover dark:hover:shadow-dark-clay-hover hover:-translate-y-0.5">
             <h3 class="text-[20px] mb-2 font-poppins font-semibold">Notifikasi Baru</h3>
             <p class="text-[36px] font-bold text-danger">1</p>
         </a>

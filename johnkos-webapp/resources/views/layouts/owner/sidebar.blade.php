@@ -25,12 +25,12 @@
                   'text-muted dark:text-dark-muted hover:text-primary dark:hover:text-dark-primary hover:shadow-clay-hover dark:hover:shadow-dark-clay-hover hover:-translate-y-0.5 hover:bg-surface dark:hover:bg-dark-surface hover:border-card-border dark:hover:border-dark-card-border active:shadow-clay-active dark:active:shadow-dark-clay-active active:translate-y-0' }}">
             <span>Penyewa</span>
         </a>
-        <a href="{{ route('owner.notifikasi.index') }}"
+        <a href="{{ route('owner.riwayat.index') }}"
            class="block p-3 px-4 rounded-md font-semibold transition-all duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] border border-transparent
-                  {{ request()->routeIs('owner.notifikasi.*') ?
+                  {{ request()->routeIs('owner.riwayat.*') ?
                   'bg-primary dark:bg-dark-primary text-white shadow-clay dark:shadow-dark-clay' :
                   'text-muted dark:text-dark-muted hover:text-primary dark:hover:text-dark-primary hover:shadow-clay-hover dark:hover:shadow-dark-clay-hover hover:-translate-y-0.5 hover:bg-surface dark:hover:bg-dark-surface hover:border-card-border dark:hover:border-dark-card-border active:shadow-clay-active dark:active:shadow-dark-clay-active active:translate-y-0' }}">
-            <span>Notifikasi</span>
+            <span>Riwayat</span>
         </a>
     </nav>
 

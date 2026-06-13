@@ -1,7 +1,7 @@
 @extends('app')
 
-@section('title', 'Notifikasi - JohnKos')
-@section('header_title', 'Notifikasi')
+@section('title', 'Riwayat - JohnKos')
+@section('header_title', 'Riwayat')
 
 @section('content')
     <div class="bg-surface dark:bg-dark-surface rounded-md p-6 shadow-clay dark:shadow-dark-clay transition-all duration-300 ease-in-out border border-card-border dark:border-dark-card-border">
