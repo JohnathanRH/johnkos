@@ -33,7 +33,7 @@
 
         <div class="grid grid-cols-2 bg-background dark:bg-dark-background rounded-md p-1 mb-8 shadow-input dark:shadow-dark-input">
             <button type="button" id="ownerBtn" data-action="{{ route('owner.dashboard') }}" class="p-3 rounded-md border border-transparent bg-surface dark:bg-dark-surface text-main dark:text-dark-main font-semibold cursor-pointer transition-all duration-200 ease-in-out shadow-clay dark:shadow-dark-clay">Pemilik</button>
-            <button type="button" id="tenantBtn" data-action="#" class="p-3 rounded-md border border-transparent bg-transparent text-muted dark:text-dark-muted font-semibold cursor-pointer transition-all duration-200 ease-in-out hover:text-primary dark:hover:text-dark-primary hover:bg-primary/10">Penyewa</button>
+            <button type="button" id="tenantBtn" data-action="{{ route('tenant.dashboard') }}" class="p-3 rounded-md border border-transparent bg-transparent text-muted dark:text-dark-muted font-semibold cursor-pointer transition-all duration-200 ease-in-out hover:text-primary dark:hover:text-dark-primary hover:bg-primary/10">Penyewa</button>
         </div>
 
         <form id="loginForm" action="{{ route('owner.dashboard') }}" method="GET" class="text-left">
