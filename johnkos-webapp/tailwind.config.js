@@ -1,77 +1,77 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
-export default {
-    darkMode: ['class'],
+module.exports = {
+    darkMode: 'class',
     content: [
-        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-        './storage/framework/views/*.php',
+        // Pastikan ini mencakup semua file Blade Anda
         './resources/views/**/*.blade.php',
-        './resources/js/**/*.{vue,js,ts,jsx,tsx}',
     ],
     theme: {
         extend: {
-            fontFamily: {
-                sans: ['Instrument Sans', ...defaultTheme.fontFamily.sans],
+            colors: {
+                'background': '#eef2f6',
+                'surface': '#e0eaf5',
+                'surface-hover': '#d8e3f2',
+                'primary': {
+                    DEFAULT: '#6a9ce4',
+                    hover: '#5585d1',
+                },
+                'main': '#1C398E',
+                'muted': '#5e7399',
+                'success': '#81c784',
+                'warning': '#ffb74d',
+                'danger': '#e57373',
+                'card-border': 'rgba(255, 255, 255, 0.5)',
+                dark: {
+                    'background': '#1e293b',
+                    'surface': '#334155',
+                    'surface-hover': '#475569',
+                    'primary': {
+                        DEFAULT: '#3b82f6',
+                        hover: '#60a5fa',
+                    },
+                    'main': '#f1f5f9',
+                    'muted': '#94a3b8',
+                    'card-border': 'rgba(255, 255, 255, 0.05)',
+                }
+            },
+            boxShadow: {
+                'input': 'inset 4px 4px 8px rgba(163, 177, 198, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.9)',
+                'clay': '8px 8px 16px rgba(163, 177, 198, 0.6), -8px -8px 16px rgba(255, 255, 255, 0.9), inset 2px 2px 4px rgba(255, 255, 255, 0.5)',
+                'clay-hover': '12px 12px 20px rgba(163, 177, 198, 0.6), -12px -12px 20px rgba(255, 255, 255, 0.9), inset 2px 2px 4px rgba(255, 255, 255, 0.5)',
+                'clay-active': 'inset 6px 6px 10px rgba(163, 177, 198, 0.6), inset -6px -6px 10px rgba(255, 255, 255, 0.9)',
+                'dark-input': 'inset 4px 4px 8px rgba(0, 0, 0, 0.5)',
+                'dark-clay': '8px 8px 16px rgba(0, 0, 0, 0.5), inset 2px 2px 4px rgba(0, 0, 0, 0.3)',
+                'dark-clay-hover': '12px 12px 20px rgba(0, 0, 0, 0.5), inset 2px 2px 4px rgba(0, 0, 0, 0.3)',
+                'dark-clay-active': 'inset 6px 6px 10px rgba(0, 0, 0, 0.5), inset -6px -6px 10px rgba(0, 0, 0, 0.5)', // Adjusted for dark mode
             },
             borderRadius: {
-                lg: 'var(--radius)',
-                md: 'calc(var(--radius) - 2px)',
-                sm: 'calc(var(--radius) - 4px)',
+                'sm': '12px',
+                'md': '24px',
+                'full': '999px',
             },
-            colors: {
-                background: 'hsl(var(--background))',
-                foreground: 'hsl(var(--foreground))',
-                card: {
-                    DEFAULT: 'hsl(var(--card))',
-                    foreground: 'hsl(var(--card-foreground))',
+            spacing: {
+                '2': '8px',
+                '3': '12px',
+                '4': '16px',
+                '6': '24px',
+                '8': '32px',
+            },
+            fontFamily: {
+                sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
+                poppins: ['Poppins', 'sans-serif'],
+            },
+            keyframes: {
+                fadeIn: {
+                    'from': { opacity: '0' },
+                    'to': { opacity: '1' },
                 },
-                popover: {
-                    DEFAULT: 'hsl(var(--popover))',
-                    foreground: 'hsl(var(--popover-foreground))',
-                },
-                primary: {
-                    DEFAULT: 'hsl(var(--primary))',
-                    foreground: 'hsl(var(--primary-foreground))',
-                },
-                secondary: {
-                    DEFAULT: 'hsl(var(--secondary))',
-                    foreground: 'hsl(var(--secondary-foreground))',
-                },
-                muted: {
-                    DEFAULT: 'hsl(var(--muted))',
-                    foreground: 'hsl(var(--muted-foreground))',
-                },
-                accent: {
-                    DEFAULT: 'hsl(var(--accent))',
-                    foreground: 'hsl(var(--accent-foreground))',
-                },
-                destructive: {
-                    DEFAULT: 'hsl(var(--destructive))',
-                    foreground: 'hsl(var(--destructive-foreground))',
-                },
-                border: 'hsl(var(--border))',
-                input: 'hsl(var(--input))',
-                ring: 'hsl(var(--ring))',
-                chart: {
-                    1: 'hsl(var(--chart-1))',
-                    2: 'hsl(var(--chart-2))',
-                    3: 'hsl(var(--chart-3))',
-                    4: 'hsl(var(--chart-4))',
-                    5: 'hsl(var(--chart-5))',
-                },
-                sidebar: {
-                    DEFAULT: 'hsl(var(--sidebar-background))',
-                    foreground: 'hsl(var(--sidebar-foreground))',
-                    primary: 'hsl(var(--sidebar-primary))',
-                    'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-                    accent: 'hsl(var(--sidebar-accent))',
-                    'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-                    border: 'hsl(var(--sidebar-border))',
-                    ring: 'hsl(var(--sidebar-ring))',
-                },
+            },
+            animation: {
+                'fade-in': 'fadeIn 0.4s ease-out forwards',
             },
         },
     },
-    plugins: [require('tailwindcss-animate')],
+    plugins: [],
 };
