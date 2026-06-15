@@ -36,7 +36,8 @@
             <button type="button" id="tenantBtn" data-action="{{ route('tenant.dashboard') }}" class="p-3 rounded-md border border-transparent bg-transparent text-muted dark:text-dark-muted font-semibold cursor-pointer transition-all duration-200 ease-in-out hover:text-primary dark:hover:text-dark-primary hover:bg-primary/10">Penyewa</button>
         </div>
 
-        <form id="loginForm" action="{{ route('owner.dashboard') }}" method="GET" class="text-left">
+        <form id="loginForm" action="{{ route('login.store') }}" method="POST" class="text-left">
+            @csrf
             <input type="hidden" id="selectedRole" name="role" value="owner">
             <div class="mb-5">
                 <label for="email" class="block font-semibold mb-2 text-sm">Email</label>
@@ -53,6 +54,11 @@
             </div>
             <button type="submit" class="w-full mt-4 p-4 p-3 px-6 border border-transparent rounded-full font-semibold font-sans cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] shadow-clay dark:shadow-dark-clay inline-block text-center bg-primary dark:bg-dark-primary text-white hover:bg-primary-hover dark:hover:bg-dark-primary-hover hover:shadow-clay-hover dark:hover:shadow-dark-clay-hover hover:-translate-y-0.5 active:shadow-clay-active dark:active:shadow-dark-clay-active active:translate-y-0">Masuk</button>
         </form>
+        @error('email')
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
+        @enderror
     </div>
 </body>
 </html>
