@@ -1,3 +1,7 @@
+@php
+    $initials = Str::of(auth()->user()->name)->initials();
+@endphp
+
 <header class="flex justify-between items-center p-4 px-6 bg-surface dark:bg-dark-surface rounded-md shadow-clay dark:shadow-dark-clay border border-transparent transition-all duration-300">
     <div class="flex items-center gap-4">
         @if(request()->routeIs('owner.kamar.show') || request()->routeIs('owner.penyewa.show'))
@@ -16,10 +20,10 @@
 
         <a href="{{ route('owner.profil') }}" class="flex items-center gap-3 p-2 px-4 rounded-full bg-surface dark:bg-dark-surface shadow-clay dark:shadow-dark-clay cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] border border-transparent hover:shadow-clay-hover dark:hover:shadow-dark-clay-hover hover:-translate-y-0.5 hover:border-card-border dark:hover:border-dark-card-border active:shadow-clay-active dark:active:shadow-dark-clay-active active:translate-y-0">
             <div class="w-10 h-10 rounded-full bg-primary dark:bg-dark-primary text-white flex items-center justify-center font-bold text-lg">
-                <span>JO</span>
+                <span>{{ $initials }}</span>
             </div>
             <div class="user-info">
-                <strong class="font-semibold">John Doe</strong>
+                <strong class="font-semibold">{{ auth()->user()->name }}</strong>
                 <div class="text-muted dark:text-dark-muted text-xs">Pemilik Kos</div>
             </div>
         </a>

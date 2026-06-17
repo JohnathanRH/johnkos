@@ -3,21 +3,40 @@
 @section('title', 'Dashboard Pemilik - JohnKos')
 @section('header_title', 'Dashboard')
 
+@php
+    $totalRoomCount = $kost->kamars->count();
+    $inhabitedCount = $kost->kamars->where('tenant_id', '!=', null)->count();
+    
+    $percentage = $totalRoomCount > 0 ? ($inhabitedCount / $totalRoomCount) * 100 : 0;
+@endphp
+
 @section('content')
     <div class="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-6">
         <div class="bg-surface dark:bg-dark-surface rounded-md p-6 shadow-clay dark:shadow-dark-clay transition-all duration-300 ease-in-out border border-card-border dark:border-dark-card-border">
             <h3 class="text-[20px] mb-2 font-poppins font-semibold">Kamar Terisi</h3>
-            <p class="text-[36px] font-bold text-primary dark:text-dark-primary">8 <span class="text-base font-medium text-muted dark:text-dark-muted">/ 10</span></p>
+            <p class="text-[36px] font-bold text-primary dark:text-dark-primary">
+                {{ $inhabitedCount }}
+                <span class="text-base font-medium text-muted dark:text-dark-muted">
+                    / {{ $totalRoomCount }}
+                </span>
+            </p>
             <div class="mt-4">
                 <div class="h-[10px] bg-[#d1d9e6] rounded-[5px] overflow-hidden">
-                    <div style="width: 80%;" class="h-full bg-primary dark:bg-dark-primary rounded-[5px]"></div>
+                    <div style="width: {{ $percentage }}%;" class="h-full bg-primary dark:bg-dark-primary rounded-[5px]"></div>
                 </div>
             </div>
         </div>
 
         <a href="{{ route('owner.penyewa.index') }}" class="block bg-surface dark:bg-dark-surface rounded-md p-6 shadow-clay dark:shadow-dark-clay transition-all duration-300 ease-in-out border border-card-border dark:border-dark-card-border hover:shadow-clay-hover dark:hover:shadow-dark-clay-hover hover:-translate-y-0.5">
-            <h3 class="text-[20px] mb-2 font-poppins font-semibold">Total Penyewa</h3>
-            <p class="text-[36px] font-bold text-primary dark:text-dark-primary">8 <span class="text-base font-medium text-muted dark:text-dark-muted">Penyewa</span></p>
+            <h3 class="text-[20px] mb-2 font-poppins font-semibold">
+                Total Penyewa
+            </h3>
+            <p class="text-[36px] font-bold text-primary dark:text-dark-primary">
+                {{ $inhabitedCount }}
+                <span class="text-base font-medium text-muted dark:text-dark-muted">
+                    Penyewa
+                </span>
+            </p>
         </a>
 
         <a href="{{ route('owner.kamar.index') }}" class="block bg-surface dark:bg-dark-surface rounded-md p-6 shadow-clay dark:shadow-dark-clay transition-all duration-300 ease-in-out border border-card-border dark:border-dark-card-border hover:shadow-clay-hover dark:hover:shadow-dark-clay-hover hover:-translate-y-0.5">
