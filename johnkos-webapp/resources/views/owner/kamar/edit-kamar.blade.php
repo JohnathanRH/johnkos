@@ -5,27 +5,35 @@
 
 @section('content')
     <div class="bg-surface dark:bg-dark-surface rounded-md p-6 shadow-clay dark:shadow-dark-clay border border-card-border dark:border-dark-card-border">
-        <form action="#" method="POST">
+        <form action="{{ route('owner.kamar.update', ['kamar' => $kamar->id]) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="mb-8">
                 <h3 class="text-xl font-poppins font-semibold mb-4 border-b border-card-border dark:border-dark-card-border pb-2">Informasi Kamar</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-2">
                     <div class="mb-5">
-                        <label for="nomor_kamar" class="block font-semibold mb-2 text-sm">Nomor Kamar</label>
-                        <input type="text" name="nomor_kamar" id="nomor_kamar" class="w-full py-3 px-5 rounded-md border border-transparent bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-all duration-200 ease-in-out" value="{{ $kamar->nomor_kamar }}">
+                        <label for="name" class="block font-semibold mb-2 text-sm">Nama Kamar</label>
+                        <input value="{{ $kamar->name }}" type="text" name="name" id="name" class="w-full py-3 px-5 rounded-md border border-transparent bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-all duration-200 ease-in-out">
                     </div>
                     <div class="mb-5">
-                        <label for="lantai" class="block font-semibold mb-2 text-sm">Lantai</label>
-                        <input type="number" name="lantai" id="lantai" class="w-full py-3 px-5 rounded-md border border-transparent bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-all duration-200 ease-in-out" value="{{ $kamar->lantai }}">
+                        <label for="floor" class="block font-semibold mb-2 text-sm">Lantai</label>
+                        <input value="{{ $kamar->floor }}" type="number" name="floor" id="floor" class="w-full py-3 px-5 rounded-md border border-transparent bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-all duration-200 ease-in-out">
                     </div>
                     <div class="mb-5">
-                        <label for="harga" class="block font-semibold mb-2 text-sm">Harga per Bulan (Rp)</label>
-                        <input type="number" name="harga" id="harga" class="w-full py-3 px-5 rounded-md border border-transparent bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-all duration-200 ease-in-out" value="{{ $kamar->harga }}">
+                        <label for="price" class="block font-semibold mb-2 text-sm">Harga per Bulan (Rp)</label>
+                        <input value="{{ $kamar->price }}" type="number" name="price" id="price" class="w-full py-3 px-5 rounded-md border border-transparent bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-all duration-200 ease-in-out">
                     </div>
                     <div class="mb-5">
-                        <label for="fasilitas" class="block font-semibold mb-2 text-sm">Fasilitas</label>
-                        <input type="text" name="fasilitas" id="fasilitas" class="w-full py-3 px-5 rounded-md border border-transparent bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-all duration-200 ease-in-out" value="{{ $kamar->fasilitas }}">
+                        <label for="facilities" class="block font-semibold mb-2 text-sm">Fasilitas</label>
+                        <input value="{{ implode(', ', $kamar->facilities) }}" type="text" name="facilities" id="facilities" class="w-full py-3 px-5 rounded-md border border-transparent bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-all duration-200 ease-in-out">
+                    </div>
+                    <div class="mb-5">
+                        <label for="length" class="block font-semibold mb-2 text-sm">Panjang</label>
+                        <input value="{{ $kamar->length }}" type="number" name="length" id="length" class="w-full py-3 px-5 rounded-md border border-transparent bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-all duration-200 ease-in-out">
+                    </div>
+                    <div class="mb-5">
+                        <label for="width" class="block font-semibold mb-2 text-sm">Lebar</label>
+                        <input value="{{ $kamar->width }}" type="number" name="width" id="width" class="w-full py-3 px-5 rounded-md border border-transparent bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-all duration-200 ease-in-out">
                     </div>
                 </div>
             </div>

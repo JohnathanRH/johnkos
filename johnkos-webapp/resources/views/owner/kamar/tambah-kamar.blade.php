@@ -5,31 +5,40 @@
 
 @section('content')
     <div class="bg-surface dark:bg-dark-surface rounded-md p-6 shadow-clay dark:shadow-dark-clay border border-card-border dark:border-dark-card-border">
-        <form action="#" method="POST">
+        <form action="{{ route('owner.kamar.store') }}" method="POST">
             @csrf
             <div class="mb-6">
                 <h3 class="text-xl font-poppins font-semibold mb-3 border-b border-card-border dark:border-dark-card-border pb-2">Informasi Kamar</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
                     <div>
-                        <label for="nomor_kamar" class="block font-semibold mb-1 text-sm">Nomor Kamar</label>
-                        <input type="text" name="nomor_kamar" id="nomor_kamar" class="w-full py-2 px-4 rounded-md border border-transparent bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-all duration-200 ease-in-out" placeholder="Contoh: 1A">
+                        <label for="name" class="block font-semibold mb-1 text-sm">Nama Kamar</label>
+                        <input type="text" name="name" id="name" class="w-full py-2 px-4 rounded-md border border-transparent bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-all duration-200 ease-in-out" placeholder="Contoh: 1A">
                     </div>
                     <div>
-                        <label for="lantai" class="block font-semibold mb-1 text-sm">Lantai</label>
-                        <input type="number" name="lantai" id="lantai" class="w-full py-2 px-4 rounded-md border border-transparent bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-all duration-200 ease-in-out" placeholder="Contoh: 1">
+                        <label for="floor" class="block font-semibold mb-1 text-sm">Lantai</label>
+                        <input type="number" name="floor" id="floor" class="w-full py-2 px-4 rounded-md border border-transparent bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-all duration-200 ease-in-out" placeholder="Contoh: 1">
                     </div>
                     <div>
-                        <label for="harga" class="block font-semibold mb-1 text-sm">Harga per Bulan (Rp)</label>
-                        <input type="number" name="harga" id="harga" class="w-full py-2 px-4 rounded-md border border-transparent bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-all duration-200 ease-in-out" placeholder="Contoh: 1500000">
+                        <label for="price" class="block font-semibold mb-1 text-sm">Harga per Bulan (Rp)</label>
+                        <input type="number" name="price" id="price" class="w-full py-2 px-4 rounded-md border border-transparent bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-all duration-200 ease-in-out" placeholder="Contoh: 1500000">
                     </div>
                     <div>
-                        <label for="fasilitas" class="block font-semibold mb-1 text-sm">Fasilitas</label>
-                        <input type="text" name="fasilitas" id="fasilitas" class="w-full py-2 px-4 rounded-md border border-transparent bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-all duration-200 ease-in-out" placeholder="Contoh: AC, Kamar Mandi Dalam">
+                        <label for="facilities" class="block font-semibold mb-1 text-sm">Fasilitas</label>
+                        <input type="text" name="facilities" id="facilities" class="w-full py-2 px-4 rounded-md border border-transparent bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-all duration-200 ease-in-out" placeholder="Contoh: AC, Kamar Mandi Dalam">
                     </div>
+                    <div>
+                        <label for="length" class="block font-semibold mb-1 text-sm">Panjang</label>
+                        <input type="text" name="length" id="length" class="w-full py-2 px-4 rounded-md border border-transparent bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-all duration-200 ease-in-out" placeholder="Contoh: AC, Kamar Mandi Dalam">
+                    </div>
+                    <div>
+                        <label for="width" class="block font-semibold mb-1 text-sm">Lebar</label>
+                        <input type="text" name="width" id="width" class="w-full py-2 px-4 rounded-md border border-transparent bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-all duration-200 ease-in-out" placeholder="Contoh: AC, Kamar Mandi Dalam">
+                    </div>
+                    
                 </div>
             </div>
 
-            <div class="mb-6">
+            {{-- <div class="mb-6">
                 <h3 class="text-xl font-poppins font-semibold mb-3 border-b border-card-border dark:border-dark-card-border pb-2">Informasi Penyewa (Opsional)</h3>
                 <p class="text-sm text-muted dark:text-dark-muted mb-3">Isi bagian ini jika kamar sudah langsung ada penyewanya.</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
@@ -50,7 +59,7 @@
                         <input type="text" name="tanggal_jatuh_tempo" id="tanggal_jatuh_tempo" class="datepicker w-full py-2 px-4 rounded-md border border-transparent bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-all duration-200 ease-in-out" placeholder="Pilih tanggal...">
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="flex justify-end gap-4 mt-6">
                 <button type="button" onclick="history.back()" class="inline-flex items-center py-2 px-6 border border-muted dark:border-dark-muted rounded-full font-semibold font-sans text-muted dark:text-dark-muted hover:bg-gray-100 dark:hover:bg-dark-surface-hover transition-all">Batal</button>

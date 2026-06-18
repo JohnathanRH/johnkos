@@ -13,6 +13,11 @@ class Kost extends Model
     }
 
     public function kamars(){
-        return $this->hasMany(Kamar::class);
+        return $this->hasMany(Kamar::class, 'kost_id', 'id');
     }
+
+    public function notifications(){
+        return $this->hasMany(Notification::class);
+    }
+
 }

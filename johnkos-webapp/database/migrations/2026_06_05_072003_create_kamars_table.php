@@ -11,8 +11,10 @@ return new class extends Migration
         Schema::create('kamars', function(Blueprint $table){
             $table->id();
             $table->foreignId('kost_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('tenant_id')->nullable()->constrained();
             $table->string('name', 25);
+            $table->text('facilities');
+            $table->integer('floor');
+            $table->decimal('price', 12, 2)->default(0.00);
             $table->float('width');
             $table->float('length');
             $table->timestamps();

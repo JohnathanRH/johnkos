@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('paymentdeadline', function (Blueprint $table) {
+        Schema::create('notifications', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('kamars_id')->constrained('kamars')->onDelete('cascade');
-            // $table->foreignId('tenants_id')->constrained('tenants')->onDelete('cascade');
-            $table->date('deadline');
+            $table->foreignId('kost_id')->constrained('kosts')->onDelete('cascade');
+            $table->string('title', 50);
+            $table->text('description');
+            $table->enum('tags', ['Lunas', 'Tidak Bayar', 'Detail']);
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('paymentdeadline');
+        Schema::dropIfExists('notifications');
     }
 };

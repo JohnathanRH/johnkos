@@ -42,13 +42,13 @@
             <div class="mb-5">
                 <label for="email" class="block font-semibold mb-2 text-sm">Email</label>
                 <div class="relative w-full">
-                    <input type="email" id="email" name="email" value="pemilik@johnkos.com" placeholder="Masukkan alamat email" required class="w-full py-3.5 px-5 rounded-md border-none bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-shadow duration-200 ease-in-out focus:shadow-input dark:focus:shadow-dark-input">
+                    <input type="email" id="email" name="email" value="a@a.com" placeholder="Masukkan alamat email" required class="w-full py-3.5 px-5 rounded-md border-none bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-shadow duration-200 ease-in-out focus:shadow-input dark:focus:shadow-dark-input">
                 </div>
             </div>
             <div class="mb-5">
                 <label for="password" class="block font-semibold mb-2 text-sm">Password</label>
                 <div class="relative w-full">
-                    <input type="password" id="password" name="password" value="123456" placeholder="Masukkan password" required class="w-full py-3.5 px-5 rounded-md border-none bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-shadow duration-200 ease-in-out pr-[70px]">
+                    <input type="password" id="password" name="password" value="123123123" placeholder="Masukkan password" required class="w-full py-3.5 px-5 rounded-md border-none bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-shadow duration-200 ease-in-out pr-[70px]">
                     <button type="button" id="passwordToggle" class="absolute right-4 top-1/2 -translate-y-1/2 bg-none border-none text-muted dark:text-dark-muted cursor-pointer font-bold text-xs p-1 transition-colors duration-200 hover:text-primary dark:hover:text-dark-primary">SHOW</button>
                 </div>
             </div>

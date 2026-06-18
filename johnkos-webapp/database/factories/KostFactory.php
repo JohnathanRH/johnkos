@@ -22,6 +22,7 @@ class KostFactory extends Factory
             'user_id' => User::factory(),
             'name'    => $this->faker->company() . ' Stay',
             'address' => $this->faker->address(),
+            'floors'  => $this->faker->numberBetween(1, 3),
         ];
     }
 }

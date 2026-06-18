@@ -1,48 +1,18 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KostController;
+use App\Http\Controllers\KamarController;
 
 Route::prefix('owner')->middleware('auth')->group(function () {
     Route::get('/dashboard', [KostController::class, 'index'])->name('owner.dashboard');
 
     // Kamar Routes
-    Route::get('/kamar', function () {
-        return view('owner.kamar.daftar-kamar');
-    })->name('owner.kamar.index');
-
-    Route::get('/kamar/tambah', function () {
-        return view('owner.kamar.tambah-kamar');
-    })->name('owner.kamar.tambah');
-
-    Route::get('/kamar/{id}', function ($id) {
-        // Dummy data for example
-        $kamar = (object)[
-            'id' => $id,
-            'nomor_kamar' => '0' . $id,
-            'status' => $id == 1 ? 'Terisi' : 'Kosong',
-            'harga' => 1500000,
-            'fasilitas' => 'AC, Kamar Mandi Dalam',
-            'penghuni' => $id == 1 ? (object)[
-                'id' => 1,
-                'nama' => 'Ahmad Budi',
-                'tanggal_masuk' => '2023-01-15',
-                'tanggal_jatuh_tempo' => '2023-12-15'
-            ] : null
-        ];
-        return view('owner.kamar.detail-kamar', ['kamar' => $kamar]);
-    })->name('owner.kamar.show');
-
-    Route::get('/kamar/{id}/edit', function ($id) {
-        // Dummy data for example
-        $kamar = (object)[
-            'id' => $id,
-            'nomor_kamar' => '0' . $id,
-            'lantai' => 1,
-            'harga' => 1500000,
-            'fasilitas' => 'AC, Kamar Mandi Dalam',
-        ];
-        return view('owner.kamar.edit-kamar', ['kamar' => $kamar]);
-    })->name('owner.kamar.edit');
+    Route::get('/kamar', [KamarController::class, 'index'])->name('owner.kamar.index');
+    Route::get('/kamar/create', [KamarController::class, 'create'])->name('owner.kamar.create');
+    Route::post('/kamar', [KamarController::class, 'store'])->name('owner.kamar.store');
+    Route::get('/kamar/{kamar}', [KamarController::class, 'show'])->name('owner.kamar.show');
+    Route::get('/kamar/{kamar}/edit', [KamarController::class, 'edit'])->name('owner.kamar.edit');
+    Route::put('/kamar/{kamar}', [KamarController::class, 'update'])->name('owner.kamar.update');
 
     Route::get('/kamar/{id}/tambah-penyewa', function ($id) {
         // Dummy data for example

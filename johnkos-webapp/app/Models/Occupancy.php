@@ -5,12 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tenant extends Model
+class Occupancy extends Model
 {
-    /** @use HasFactory<\Database\Factories\TenantFactory> */
     use HasFactory;
 
     public function kamar(){
-        return $this->hasOne(Occupancy::class);
+        return $this->belongsTo(Kamar::class);
+    }
+
+    public function tenant(){
+        return $this->belongsTo(Tenant::class);
     }
 }

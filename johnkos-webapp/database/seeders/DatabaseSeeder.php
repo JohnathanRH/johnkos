@@ -24,15 +24,12 @@ class DatabaseSeeder extends Seeder
             ->each(function ($user) {
                 $kost = Kost::factory()->create(['user_id' => $user->id]);
                 
-                // Create 5 rooms for this Kost
-                $rooms = Kamar::factory()->count(5)->create(['kost_id' => $kost->id]);
-
-                // Randomly assign tenants to some of the rooms
-                foreach ($rooms as $room) {
-                    if (rand(0, 1)) { // 50% chance the room is occupied
-                        $tenant = Tenant::factory()->create();
-                        $room->update(['tenant_id' => $tenant->id]);
-                    }
+                // Generate rooms explicitly on valid floors for this property
+                for ($i = 0; $i < 5; $i++) {
+                    Kamar::factory()->create([
+                        'kost_id' => $kost->id,
+                        'floor'   => rand(1, $kost->floors), 
+                    ]);
                 }
             });
 
@@ -40,15 +37,22 @@ class DatabaseSeeder extends Seeder
         User::factory(9)->create()->each(function ($user) {
             $kost = Kost::factory()->create(['user_id' => $user->id]);
             
-            $rooms = Kamar::factory()->count(rand(3, 6))->create(['kost_id' => $kost->id]);
-
-            // Randomly assign tenants to some of the rooms
-            foreach ($rooms as $room) {
-                if (rand(0, 1)) {
-                    $tenant = Tenant::factory()->create();
-                    $room->update(['tenant_id' => $tenant->id]);
-                }
+            $roomCount = rand(3, 6);
+            for ($i = 0; $i < $roomCount; $i++) {
+                Kamar::factory()->create([
+                    'kost_id' => $kost->id,
+                    'floor'   => rand(1, $kost->floors),
+                ]);
             }
         });
+        
+        // 3. Create the pool of 20 tenants
+        Tenant::factory()->count(20)->create();
+
+        // 4. Run the Occupancy Seeder to link them up
+        $this->call([
+            OccupancySeeder::class,
+            NotificationSeeder::class,
+        ]);
     }
 }
