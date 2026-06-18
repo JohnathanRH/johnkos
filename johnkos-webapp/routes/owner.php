@@ -5,6 +5,7 @@ use App\Http\Controllers\KamarController;
 use App\Http\Controllers\TenantController;
 use App\Http\Controllers\OccupancyController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\NotificationController;
 
 Route::prefix('owner')->middleware('auth')->group(function () {
     Route::get('/dashboard', [KostController::class, 'index'])->name('owner.dashboard');
@@ -37,9 +38,7 @@ Route::prefix('owner')->middleware('auth')->group(function () {
     })->name('owner.penyewa.edit');
 
     // Other Owner Routes
-    Route::get('/riwayat', function () {
-        return view('owner.riwayat.daftar-riwayat');
-    })->name('owner.riwayat.index');
+    Route::get('/riwayat', [NotificationController::class, 'index'])->name('owner.riwayat.index');
 
     Route::get('/profil', function () {
         return view('owner.profil.halaman-profil');
