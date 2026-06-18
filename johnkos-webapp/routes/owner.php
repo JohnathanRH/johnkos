@@ -20,6 +20,7 @@ Route::prefix('owner')->middleware('auth')->group(function () {
     // Penyewa Routes
     Route::get('/penyewa', [TenantController::class, 'index'])->name('owner.penyewa.index');
     Route::get('/kamar/{kamar}/tambah-penyewa', [OccupancyController::class, 'assignment'])->name('owner.kamar.tambah-penyewa');
+    Route::post('/kamar/{kamar}/tambah-penyewa', [OccupancyController::class, 'assign'])->name('owner.kamar.assign');
 
     Route::get('/tenant/{tenant}', [TenantController::class, 'show'])->name('owner.penyewa.show');
 

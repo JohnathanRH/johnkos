@@ -46,6 +46,11 @@
             <div class="mt-auto pt-4">
                 <a href="{{ route('owner.kamar.edit', ['kamar' => $kamar->id]) }}" class="p-3 px-6 border border-transparent rounded-full font-semibold font-sans cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] shadow-clay dark:shadow-dark-clay inline-block text-center bg-primary dark:bg-dark-primary text-white hover:bg-primary-hover dark:hover:bg-dark-primary-hover hover:shadow-clay-hover dark:hover:shadow-dark-clay-hover hover:-translate-y-0.5 active:shadow-clay-active dark:active:shadow-dark-clay-active active:translate-y-0">Edit Informasi Kamar</a>
             </div>
+            {{-- <div class="mt-auto pt-4">
+                <a href="" class="p-3 px-6 border border-transparent rounded-full font-semibold font-sans cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] shadow-clay dark:shadow-dark-clay inline-block text-center bg-primary dark:bg-dark-primary text-white hover:bg-primary-hover dark:hover:bg-dark-primary-hover hover:shadow-clay-hover dark:hover:shadow-dark-clay-hover hover:-translate-y-0.5 active:shadow-clay-active dark:active:shadow-dark-clay-active active:translate-y-0">
+                    Keluarkan Penyewa
+                </a>
+            </div> --}}
         </div>
 
         @if ($kamar->occupancy != null)
@@ -81,7 +86,7 @@
             </div>
         @endif
 
-        {{-- @if ($kamar->occupancy != null)
+        @if ($kamar->occupancy != null)
             <div class="lg:col-span-3 bg-surface dark:bg-dark-surface rounded-md p-6 shadow-clay dark:shadow-dark-clay transition-all duration-300 ease-in-out border border-card-border dark:border-dark-card-border">
                 <h3 class="text-[20px] mb-2 font-poppins font-semibold">Riwayat Pembayaran</h3>
                 <div class="space-y-2">
@@ -96,6 +101,6 @@
                     </div>
                 </div>
             </div>
-        @endif --}}
+        @endif
     </div>
 @endsection

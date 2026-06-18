@@ -85,7 +85,7 @@
                 {{ $notification->tags }}
             </span>
             @elseif($notification->tags == "Detail")
-            <a href="{{ route('owner.penyewa.show', ['id' => 2]) }}" class="inline-block text-center p-3 px-6 border border-transparent rounded-full font-semibold cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] shadow-clay dark:shadow-dark-clay bg-surface dark:bg-dark-surface text-main dark:text-dark-main hover:bg-background dark:hover:bg-dark-background hover:shadow-clay-hover dark:hover:shadow-dark-clay-hover hover:-translate-y-0.5 active:shadow-clay-active dark:active:shadow-dark-clay-active active:translate-y-0 py-2 px-4 text-xs">
+            <a href="{{ route('owner.penyewa.show', ['tenant' => 2]) }}" class="inline-block text-center p-3 px-6 border border-transparent rounded-full font-semibold cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] shadow-clay dark:shadow-dark-clay bg-surface dark:bg-dark-surface text-main dark:text-dark-main hover:bg-background dark:hover:bg-dark-background hover:shadow-clay-hover dark:hover:shadow-dark-clay-hover hover:-translate-y-0.5 active:shadow-clay-active dark:active:shadow-dark-clay-active active:translate-y-0 py-2 px-4 text-xs">
                 Lihat Detail
             </a>
             @endif
