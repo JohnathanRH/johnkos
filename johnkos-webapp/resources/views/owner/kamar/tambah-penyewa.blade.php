@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('title', 'Tambah Penyewa - JohnKos')
-@section('header_title', 'Tambah Penyewa untuk Kamar ' . $kamar->nomor_kamar)
+@section('header_title', 'Tambah Penyewa untuk ' . $kamar->name)
 
 @section('content')
     <div class="bg-surface dark:bg-dark-surface rounded-md p-6 shadow-clay dark:shadow-dark-clay border border-card-border dark:border-dark-card-border">

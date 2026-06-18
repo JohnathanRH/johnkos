@@ -20,4 +20,16 @@ class Kost extends Model
         return $this->hasMany(Notification::class);
     }
 
+    public function occupancies()
+    {
+        return $this->hasManyThrough(
+            Occupancy::class,
+            Kamar::class,
+            'kost_id',
+            'kamar_id',
+            'id',
+            'id'
+        );
+    }
+
 }

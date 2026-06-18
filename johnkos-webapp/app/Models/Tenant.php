@@ -10,7 +10,7 @@ class Tenant extends Model
     /** @use HasFactory<\Database\Factories\TenantFactory> */
     use HasFactory;
 
-    public function kamar(){
+    public function occupancy(){
         return $this->hasOne(Occupancy::class);
     }
 }

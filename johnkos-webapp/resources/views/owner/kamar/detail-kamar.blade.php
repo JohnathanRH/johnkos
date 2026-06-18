@@ -58,7 +58,7 @@
                         </div>
                         <div>
                             <h4 class="font-poppins font-semibold m-0">{{ $kamar->occupancy->tenant->name }}</h4>
-                            <a href="{{ route('owner.penyewa.show', ['id' => $kamar->occupancy->tenant->id]) }}" class="text-muted dark:text-dark-muted text-sm underline">Lihat Profil Penyewa</a>
+                            <a href="{{ route('owner.penyewa.show', ['tenant' => $kamar->occupancy->tenant->id]) }}" class="text-muted dark:text-dark-muted text-sm underline">Lihat Profil Penyewa</a>
                         </div>
                     </div>
                     <div class="flex justify-between items-baseline py-3 border-b border-card-border dark:border-dark-card-border">
@@ -75,7 +75,7 @@
             <div class="bg-surface dark:bg-dark-surface rounded-md p-6 shadow-clay dark:shadow-dark-clay transition-all duration-300 ease-in-out border border-card-border dark:border-dark-card-border flex flex-col h-full items-center justify-center text-center">
                 <h3 class="text-[20px] mb-2 font-poppins font-semibold">Kamar Ini Kosong</h3>
                 <p class="text-muted dark:text-dark-muted mb-4">Tidak ada informasi penghuni untuk ditampilkan.</p>
-                <a href="{{ route('owner.kamar.tambah-penyewa', ['id' => $kamar->id]) }}" class="p-3 px-6 border border-transparent rounded-full font-semibold font-sans cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] shadow-clay dark:shadow-dark-clay inline-block text-center bg-primary dark:bg-dark-primary text-white hover:bg-primary-hover dark:hover:bg-dark-primary-hover hover:shadow-clay-hover dark:hover:shadow-dark-clay-hover hover:-translate-y-0.5 active:shadow-clay-active dark:active:shadow-dark-clay-active active:translate-y-0">
+                <a href="{{ route('owner.kamar.tambah-penyewa', ['kamar' => $kamar->id]) }}" class="p-3 px-6 border border-transparent rounded-full font-semibold font-sans cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] shadow-clay dark:shadow-dark-clay inline-block text-center bg-primary dark:bg-dark-primary text-white hover:bg-primary-hover dark:hover:bg-dark-primary-hover hover:shadow-clay-hover dark:hover:shadow-dark-clay-hover hover:-translate-y-0.5 active:shadow-clay-active dark:active:shadow-dark-clay-active active:translate-y-0">
                     + Tambah Penyewa
                 </a>
             </div>

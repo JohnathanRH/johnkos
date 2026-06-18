@@ -2,6 +2,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KostController;
 use App\Http\Controllers\KamarController;
+use App\Http\Controllers\TenantController;
+use App\Http\Controllers\OccupancyController;
 
 Route::prefix('owner')->middleware('auth')->group(function () {
     Route::get('/dashboard', [KostController::class, 'index'])->name('owner.dashboard');
@@ -14,34 +16,11 @@ Route::prefix('owner')->middleware('auth')->group(function () {
     Route::get('/kamar/{kamar}/edit', [KamarController::class, 'edit'])->name('owner.kamar.edit');
     Route::put('/kamar/{kamar}', [KamarController::class, 'update'])->name('owner.kamar.update');
 
-    Route::get('/kamar/{id}/tambah-penyewa', function ($id) {
-        // Dummy data for example
-        $kamar = (object)[
-            'id' => $id,
-            'nomor_kamar' => '0' . $id,
-        ];
-        return view('owner.kamar.tambah-penyewa', ['kamar' => $kamar]);
-    })->name('owner.kamar.tambah-penyewa');
-
-
     // Penyewa Routes
-    Route::get('/penyewa', function () {
-        return view('owner.penyewa.daftar-penyewa');
-    })->name('owner.penyewa.index');
+    Route::get('/penyewa', [TenantController::class, 'index'])->name('owner.penyewa.index');
+    Route::get('/kamar/{kamar}/tambah-penyewa', [OccupancyController::class, 'assignment'])->name('owner.kamar.tambah-penyewa');
 
-    Route::get('/penyewa/{id}', function ($id) {
-        // Dummy data for example
-        $penyewa = (object)[
-            'id' => $id,
-            'nama' => 'Ahmad Budi',
-            'telepon' => '081234567890',
-            'tanggal_masuk' => '2023-01-15',
-            'tanggal_jatuh_tempo' => '2023-12-15',
-            'kamar_id' => 1,
-            'kamar_nomor' => '01'
-        ];
-        return view('owner.penyewa.detail-penyewa', ['penyewa' => $penyewa]);
-    })->name('owner.penyewa.show');
+    Route::get('/tenant/{tenant}', [TenantController::class, 'show'])->name('owner.penyewa.show');
 
     Route::get('/penyewa/{id}/edit', function ($id) {
         // Dummy data for example
