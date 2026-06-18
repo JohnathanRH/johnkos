@@ -19,7 +19,9 @@
                 <span>JD</span>
             </div>
             <div class="user-info">
-                <strong class="font-semibold">Jane Doe</strong>
+                <strong class="font-semibold">
+                    {{ auth('tenant')->user()->name }}
+                </strong>
                 <div class="text-muted dark:text-dark-muted text-xs">Penyewa</div>
             </div>
         </a>

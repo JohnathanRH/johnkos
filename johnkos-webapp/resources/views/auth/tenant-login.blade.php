@@ -36,19 +36,25 @@
             <button type="button" id="tenantBtn" data-action="{{ route('tenant.dashboard') }}" class="p-3 rounded-md border border-transparent bg-transparent text-muted dark:text-dark-muted font-semibold cursor-pointer transition-all duration-200 ease-in-out hover:text-primary dark:hover:text-dark-primary hover:bg-primary/10">Penyewa</button>
         </div> --}}
 
-        <form id="loginForm" action="{{ route('login.store') }}" method="POST" class="text-left">
+        <form id="loginForm" action="{{ route('tenant.login.store') }}" method="POST" class="text-left">
             @csrf
             <input type="hidden" id="selectedRole" name="role" value="owner">
             <div class="mb-5">
                 <label for="email" class="block font-semibold mb-2 text-sm">Email</label>
                 <div class="relative w-full">
-                    <input type="email" id="email" name="email" value="a@a.com" placeholder="Masukkan alamat email" required class="w-full py-3.5 px-5 rounded-md border-none bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-shadow duration-200 ease-in-out focus:shadow-input dark:focus:shadow-dark-input">
+                    <input type="email" id="email" name="email" value="tenant@tenant.com" placeholder="Masukkan alamat email" required class="w-full py-3.5 px-5 rounded-md border-none bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-shadow duration-200 ease-in-out focus:shadow-input dark:focus:shadow-dark-input">
+                </div>
+            </div>
+            <div class="mb-5">
+                <label for="phone" class="block font-semibold mb-2 text-sm">Phone</label>
+                <div class="relative w-full">
+                    <input type="text" id="phone" name="phone" value="081234567890" placeholder="Masukkan alamat email" required class="w-full py-3.5 px-5 rounded-md border-none bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-shadow duration-200 ease-in-out focus:shadow-input dark:focus:shadow-dark-input">
                 </div>
             </div>
             <div class="mb-5">
                 <label for="password" class="block font-semibold mb-2 text-sm">Password</label>
                 <div class="relative w-full">
-                    <input type="password" id="password" name="password" value="123123123" placeholder="Masukkan password" required class="w-full py-3.5 px-5 rounded-md border-none bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-shadow duration-200 ease-in-out pr-[70px]">
+                    <input type="password" id="password" name="password" value="password" placeholder="Masukkan password" required class="w-full py-3.5 px-5 rounded-md border-none bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input outline-none font-sans text-main dark:text-dark-main transition-shadow duration-200 ease-in-out pr-[70px]">
                     <button type="button" id="passwordToggle" class="absolute right-4 top-1/2 -translate-y-1/2 bg-none border-none text-muted dark:text-dark-muted cursor-pointer font-bold text-xs p-1 transition-colors duration-200 hover:text-primary dark:hover:text-dark-primary">SHOW</button>
                 </div>
             </div>

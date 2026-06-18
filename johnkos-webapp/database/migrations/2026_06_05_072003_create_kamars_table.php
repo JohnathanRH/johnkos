@@ -14,7 +14,7 @@ return new class extends Migration
             $table->string('name', 25);
             $table->text('facilities');
             $table->integer('floor');
-            $table->decimal('price', 12, 2)->default(0.00);
+            $table->integer('price');
             $table->float('width');
             $table->float('length');
             $table->timestamps();

@@ -41,10 +41,5 @@
             <button type="submit">
                 Log Out</button>
         </form>
-        {{-- <a href="{{ route('logout') }}"
-           class="block p-3 px-4 rounded-md font-semibold text-muted dark:text-dark-muted transition-all duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] border border-transparent
-                  hover:text-danger hover:border-danger/30 hover:shadow-clay-hover dark:hover:shadow-dark-clay-hover hover:-translate-y-0.5 hover:bg-surface dark:hover:bg-dark-surface active:shadow-clay-active dark:active:shadow-dark-clay-active active:translate-y-0">
-            <span>Logout</span>
-        </a> --}}
     </div>
 </aside>

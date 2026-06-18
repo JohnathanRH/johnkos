@@ -1,6 +1,6 @@
 @extends('layouts.tenant.app')
 
-@section('header_title', 'Kamar A1')
+@section('header_title', $kamar->name)
 
 @section('content')
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
@@ -9,14 +9,20 @@
         <div class="flex flex-col gap-6">
             <!-- 1. Detail Kamar -->
             <div class="p-6 bg-surface dark:bg-dark-surface rounded-md shadow-clay dark:shadow-dark-clay border border-transparent transition-all duration-300">
-                <h3 class="text-xl font-poppins font-semibold mb-5 text-gray-800 dark:text-gray-100">Informasi Kamar</h3>
+                <h3 class="text-xl font-poppins font-semibold mb-5 text-gray-800 dark:text-gray-100">
+                    Informasi Kamar
+                </h3>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <!-- Ukuran -->
                     <div class="p-4 rounded-md bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input flex items-center justify-between">
                         <div>
                             <p class="text-sm text-muted dark:text-dark-muted mb-1">Ukuran Kamar</p>
-                            <p class="text-xl font-semibold text-gray-800 dark:text-gray-100">3 x 4 Meter</p>
+                            <p class="text-xl font-semibold text-gray-800 dark:text-gray-100">
+                                {{ $kamar->length }}
+                                x
+                                {{ $kamar->width }} Meter
+                            </p>
                         </div>
                         <div class="text-gray-400 dark:text-gray-500">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m15 9-3-3-3 3"/><path d="M12 6v12"/><path d="m19 15 3 3-3 3"/><path d="M12 18h10"/></svg>
@@ -27,7 +33,7 @@
                     <div class="p-4 rounded-md bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input flex items-center justify-between">
                         <div>
                             <p class="text-sm text-muted dark:text-dark-muted mb-1">Sewa Bulanan</p>
-                            <p class="text-xl font-semibold text-gray-800 dark:text-gray-100">Rp 1.500.000 <span class="text-sm font-normal text-muted dark:text-dark-muted">/ bln</span></p>
+                            <p class="text-xl font-semibold text-gray-800 dark:text-gray-100">{{ $kamar->price }}<span class="text-sm font-normal text-muted dark:text-dark-muted">/ bln</span></p>
                         </div>
                         <div class="text-gray-400 dark:text-gray-500">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
@@ -73,6 +79,9 @@
                         <span class="text-base font-semibold text-success">Termasuk</span>
                     </div>
                 </div>
+                <a href="{{ route('tenant.checkout', ['occupancy' => $kamar->occupancy->id]) }}" class="mt-5 p-3 px-6 border border-transparent rounded-full font-semibold font-sans cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] shadow-clay dark:shadow-dark-clay inline-block text-center bg-primary dark:bg-dark-primary text-white hover:bg-primary-hover dark:hover:bg-dark-primary-hover hover:shadow-clay-hover dark:hover:shadow-dark-clay-hover hover:-translate-y-0.5 active:shadow-clay-active dark:active:shadow-dark-clay-active active:translate-y-0">
+                    BAYAR!
+                </a>
             </div>
         </div>
 
@@ -83,7 +92,16 @@
                 <h3 class="text-xl font-poppins font-semibold mb-5 text-gray-800 dark:text-gray-100">Fasilitas Kamar</h3>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <!-- WiFi -->
+                    @foreach ($kamar->facilities as $facility)
+                    <div class="flex items-center gap-4 p-4 rounded-md bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input transition-all duration-300">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center bg-indigo-100 dark:bg-indigo-900/30 text-indigo-500 flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
+                        </div>
+                        <span class="text-base font-medium text-gray-700 dark:text-gray-200">{{ $facility }}</span>
+                    </div>
+                        
+                    @endforeach
+                    {{-- <!-- WiFi -->
                     <div class="flex items-center gap-4 p-4 rounded-md bg-background dark:bg-dark-background shadow-input dark:shadow-dark-input transition-all duration-300">
                         <div class="w-12 h-12 rounded-full flex items-center justify-center bg-blue-100 dark:bg-blue-900/30 text-blue-500 flex-shrink-0">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
@@ -141,7 +159,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
                         </div>
                         <span class="text-base font-medium text-gray-700 dark:text-gray-200">Dapur Dalam</span>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

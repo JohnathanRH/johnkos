@@ -7,6 +7,7 @@ use App\Models\Kost;
 use App\Models\Kamar;
 use App\Models\Tenant;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -46,8 +47,16 @@ class DatabaseSeeder extends Seeder
             }
         });
         
-        // 3. Create the pool of 20 tenants
-        Tenant::factory()->count(20)->create();
+        // 3. Create an explicit Test Tenant for debugging the tenant side
+        Tenant::factory()->create([
+            'name'  => 'DebugTenant',
+            'email' => 'tenant@tenant.com',
+            'phone' => '081234567890',
+            'password' => Hash::make('password'),
+        ]);
+
+        // Create the remaining 19 random tenants to total up to 20
+        Tenant::factory()->count(19)->create();
 
         // 4. Run the Occupancy Seeder to link them up
         $this->call([
