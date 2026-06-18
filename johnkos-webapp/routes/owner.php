@@ -4,6 +4,7 @@ use App\Http\Controllers\KostController;
 use App\Http\Controllers\KamarController;
 use App\Http\Controllers\TenantController;
 use App\Http\Controllers\OccupancyController;
+use App\Http\Controllers\ProfilController;
 
 Route::prefix('owner')->middleware('auth')->group(function () {
     Route::get('/dashboard', [KostController::class, 'index'])->name('owner.dashboard');
@@ -42,6 +43,7 @@ Route::prefix('owner')->middleware('auth')->group(function () {
     Route::get('/profil', function () {
         return view('owner.profil.halaman-profil');
     })->name('owner.profil');
+    Route::post('/profil', [ProfilController::class, 'update'])->name('owner.profil.update');
 });
 
 ?>
